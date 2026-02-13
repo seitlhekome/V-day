@@ -10,16 +10,19 @@
 <style>
 body {
     margin: 0;
-    background: #f5efe6;
+    background: url('https://www.transparenttextures.com/patterns/old-wall.png');
+    background-color: #f3e9dc;
     font-family: 'Cormorant Garamond', serif;
     color: #3e3024;
     line-height: 1.8;
+    overflow-x: hidden;
 }
 
 .section {
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
     padding: 80px 25px;
+    position: relative;
 }
 
 h1 {
@@ -50,13 +53,15 @@ h1 {
 
 .photo {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .photo img {
-    max-width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    max-width: 320px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    transform: rotate(-2deg);
 }
 
 button {
@@ -75,17 +80,53 @@ button:hover {
 
 #finalMessage {
     display: none;
-    margin-top: 40px;
-    font-size: 1.5rem;
+    margin-top: 60px;
+    font-size: 1.6rem;
     font-style: italic;
     text-align: center;
+    animation: fadeIn 3s forwards;
+}
+
+/* Golden Dust Animation */
+.dust {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: rgba(212,175,55,0.6);
+    border-radius: 50%;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); opacity: 0; }
+    10% { opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
 }
 
 @keyframes fadeIn {
     to { opacity: 1; }
 }
 
-/* PDF Print Styling */
+/* Candle glow effect */
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,200,120,0.25) 0%, transparent 70%);
+    transform: translateX(-50%);
+    animation: flicker 3s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes flicker {
+    from { opacity: 0.8; }
+    to { opacity: 1; }
+}
+
+/* Print styling */
 @media print {
     button, audio {
         display: none;
@@ -99,83 +140,110 @@ button:hover {
 
 <body>
 
-<!-- Soft Piano Background -->
-<audio autoplay loop>
+<audio id="bgMusic">
   <source src="soft-piano.mp3" type="audio/mpeg">
 </audio>
 
-<div class="section" id="content">
+<div class="section">
 
-    <h1>In Every Chapter, It Is You</h1>
+<h1>In Every Chapter, It Is You</h1>
 
-    <div class="quote">
-        “Some loves are loud.  
-        Ours feels like a quiet library —  
-        warm, timeless, and sacred.”
-    </div>
+<div class="quote">
+“Some loves are loud.  
+Ours feels like a quiet library —  
+warm, timeless, sacred.”
+</div>
 
-    <div class="letter">
-        To Minah Lekau,<br><br>
+<div class="letter">
+To Minah Lekau,<br><br>
 
-        Loving you feels like discovering a rare book —
-        one I want to read slowly, carefully,
-        understanding every word, every thought, every dream.<br><br>
+Loving you feels like discovering a rare manuscript —
+one written with care, depth, and purpose.<br><br>
 
-        I admire the way your mind works —
-        the depth of your thoughts,
-        the seriousness with which you approach your research,
-        the quiet strength behind your ambition.<br><br>
+You move through life with intention.
+With thought.
+With quiet brilliance.<br><br>
 
-        I cannot wait to see you stand in front of a lecture hall,
-        speaking with confidence,
-        shaping minds,
-        building a legacy through knowledge.<br><br>
+I admire your hunger for knowledge,
+your pursuit of research,
+your dream of standing before students one day —
+not just teaching,
+but shaping minds.<br><br>
 
-        And I promise this —
-        while you chase your PHD, your research, your calling,
-        I will be beside you.
-        Supporting. Encouraging. Loving.<br><br>
+I see the lecturer in you already.
+The professor.
+The woman whose name will one day be cited
+in papers and journals.<br><br>
 
-        One day, after long academic days,
-        we will travel —
-        to old cities with cobbled streets,
-        to rustic cabins with wooden furniture and soft silence,
-        to places where the only thing louder than the wind
-        is our laughter.<br><br>
+And while you build your academic legacy,
+I will be building something too —
+a life beside you.<br><br>
 
-        I do not just love you for today.
-        I love you for the life we are quietly building.
-    </div>
+We will travel.
+To old European streets.
+To wooden cabins with rustic furniture.
+To soft mornings where coffee and research papers
+share the same table.<br><br>
 
-    <div class="Seitlheko">
-        Always yours.
-    </div>
+I love you not just in this moment —
+but in the long, patient future we are creating.
+</div>
 
-    <!-- Optional Photo -->
-    <div class="photo">
-        <img src="pic.jpeg" alt="Us">
-    </div>
+<div class="signature">
+Always yours,<br>
+Seitlheko
+</div>
 
-    <div style="text-align:center;">
-        <button onclick="reveal()">Turn the Page</button>
-        <button onclick="downloadPDF()">Download as PDF</button>
-    </div>
+<div class="photo">
+    <img src="pic.jpeg" alt="Us">
+</div>
 
-    <div id="finalMessage">
-        In every future I imagine —
-        it is you walking beside me.
-        And that is enough.
-    </div>
+<div style="text-align:center;">
+    <button onclick="reveal()">Turn the Page</button>
+    <button onclick="downloadPDF()">Download as PDF</button>
+</div>
+
+<div id="finalMessage">
+In every future I imagine —  
+it is you walking beside me.  
+<br><br>
+And one day, when the timing is gentle and right…  
+I will ask you to walk beside me forever.
+</div>
 
 </div>
 
 <script>
+// Music fade in
 function reveal() {
-    document.getElementById("finalMessage").style.display = "block";
+    const message = document.getElementById("finalMessage");
+    const music = document.getElementById("bgMusic");
+
+    message.style.display = "block";
+
+    music.volume = 0;
+    music.play();
+
+    let fade = setInterval(() => {
+        if (music.volume < 0.5) {
+            music.volume += 0.02;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
 }
 
 function downloadPDF() {
     window.print();
+}
+
+// Create floating dust particles
+for (let i = 0; i < 25; i++) {
+    let dust = document.createElement("div");
+    dust.className = "dust";
+    dust.style.left = Math.random() * 100 + "vw";
+    dust.style.animationDuration = (8 + Math.random() * 5) + "s";
+    document.body.appendChild(dust);
 }
 </script>
 
