@@ -20,15 +20,16 @@ body {
     max-width: 800px;
     margin: auto;
     padding: 80px 25px;
-    text-align: center;
 }
 
 h1 {
     font-size: 3rem;
+    text-align: center;
     margin-bottom: 20px;
 }
 
 .quote {
+    text-align: center;
     font-style: italic;
     font-size: 1.4rem;
     opacity: 0;
@@ -38,7 +39,6 @@ h1 {
 .letter {
     margin-top: 40px;
     font-size: 1.3rem;
-    text-align: left;
 }
 
 .signature {
@@ -48,13 +48,25 @@ h1 {
     text-align: right;
 }
 
+.photo {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.photo img {
+    max-width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
 button {
-    margin-top: 60px;
+    margin-top: 40px;
     padding: 12px 30px;
     border: 1px solid #8b6f47;
     background: transparent;
     font-size: 1rem;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 button:hover {
@@ -66,17 +78,34 @@ button:hover {
     margin-top: 40px;
     font-size: 1.5rem;
     font-style: italic;
+    text-align: center;
 }
 
 @keyframes fadeIn {
     to { opacity: 1; }
+}
+
+/* PDF Print Styling */
+@media print {
+    button, audio {
+        display: none;
+    }
+    body {
+        background: white;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="section">
+<!-- Soft Piano Background -->
+<audio autoplay loop>
+  <source src="soft-piano.mp3" type="audio/mpeg">
+</audio>
+
+<div class="section" id="content">
+
     <h1>In Every Chapter, It Is You</h1>
 
     <div class="quote">
@@ -88,52 +117,65 @@ button:hover {
     <div class="letter">
         To Minah Lekau,<br><br>
 
-        Loving you feels like discovering a rare book —  
-        one I want to read slowly, carefully,  
-        understanding every word, every thought, every dream.  
+        Loving you feels like discovering a rare book —
+        one I want to read slowly, carefully,
+        understanding every word, every thought, every dream.<br><br>
 
-        I admire the way your mind works —  
-        the depth of your thoughts,  
-        the seriousness with which you approach your research,  
-        the quiet strength behind your ambition.  
+        I admire the way your mind works —
+        the depth of your thoughts,
+        the seriousness with which you approach your research,
+        the quiet strength behind your ambition.<br><br>
 
-        I cannot wait to see you stand in front of a lecture hall,  
-        speaking with confidence,  
-        shaping minds,  
-        building a legacy through knowledge.  
+        I cannot wait to see you stand in front of a lecture hall,
+        speaking with confidence,
+        shaping minds,
+        building a legacy through knowledge.<br><br>
 
-        And I promise this —  
-        while you chase your masters, your research, your calling,  
-        I will be beside you.  
-        Supporting. Encouraging. Loving.  
+        And I promise this —
+        while you chase your PHD, your research, your calling,
+        I will be beside you.
+        Supporting. Encouraging. Loving.<br><br>
 
-        One day, after long academic days,  
-        we will travel —  
-        to old cities with cobbled streets,  
-        to rustic cabins with wooden furniture and soft silence,  
-        to places where the only thing louder than the wind  
-        is our laughter.  
+        One day, after long academic days,
+        we will travel —
+        to old cities with cobbled streets,
+        to rustic cabins with wooden furniture and soft silence,
+        to places where the only thing louder than the wind
+        is our laughter.<br><br>
 
-        I do not just love you for today.  
+        I do not just love you for today.
         I love you for the life we are quietly building.
     </div>
 
-    <div class="signature">
+    <div class="Seitlheko">
         Always yours.
     </div>
 
-    <button onclick="reveal()">Turn the Page</button>
+    <!-- Optional Photo -->
+    <div class="photo">
+        <img src="pic.jpeg" alt="Us">
+    </div>
+
+    <div style="text-align:center;">
+        <button onclick="reveal()">Turn the Page</button>
+        <button onclick="downloadPDF()">Download as PDF</button>
+    </div>
 
     <div id="finalMessage">
-        In every future I imagine —  
-        it is you walking beside me.  
+        In every future I imagine —
+        it is you walking beside me.
         And that is enough.
     </div>
+
 </div>
 
 <script>
 function reveal() {
     document.getElementById("finalMessage").style.display = "block";
+}
+
+function downloadPDF() {
+    window.print();
 }
 </script>
 
