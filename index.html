@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>In Every Chapter, It Is You</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #f5efe6;
+    font-family: 'Cormorant Garamond', serif;
+    color: #3e3024;
+    line-height: 1.8;
+}
+
+.section {
+    max-width: 800px;
+    margin: auto;
+    padding: 80px 25px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-style: italic;
+    font-size: 1.4rem;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+
+.letter {
+    margin-top: 40px;
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+.signature {
+    margin-top: 40px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    text-align: right;
+}
+
+button {
+    margin-top: 60px;
+    padding: 12px 30px;
+    border: 1px solid #8b6f47;
+    background: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e8dccb;
+}
+
+#finalMessage {
+    display: none;
+    margin-top: 40px;
+    font-size: 1.5rem;
+    font-style: italic;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="section">
+    <h1>In Every Chapter, It Is You</h1>
+
+    <div class="quote">
+        “Some loves are loud.  
+        Ours feels like a quiet library —  
+        warm, timeless, and sacred.”
+    </div>
+
+    <div class="letter">
+        To Minah Lekau,<br><br>
+
+        Loving you feels like discovering a rare book —  
+        one I want to read slowly, carefully,  
+        understanding every word, every thought, every dream.  
+
+        I admire the way your mind works —  
+        the depth of your thoughts,  
+        the seriousness with which you approach your research,  
+        the quiet strength behind your ambition.  
+
+        I cannot wait to see you stand in front of a lecture hall,  
+        speaking with confidence,  
+        shaping minds,  
+        building a legacy through knowledge.  
+
+        And I promise this —  
+        while you chase your masters, your research, your calling,  
+        I will be beside you.  
+        Supporting. Encouraging. Loving.  
+
+        One day, after long academic days,  
+        we will travel —  
+        to old cities with cobbled streets,  
+        to rustic cabins with wooden furniture and soft silence,  
+        to places where the only thing louder than the wind  
+        is our laughter.  
+
+        I do not just love you for today.  
+        I love you for the life we are quietly building.
+    </div>
+
+    <div class="signature">
+        Always yours.
+    </div>
+
+    <button onclick="reveal()">Turn the Page</button>
+
+    <div id="finalMessage">
+        In every future I imagine —  
+        it is you walking beside me.  
+        And that is enough.
+    </div>
+</div>
+
+<script>
+function reveal() {
+    document.getElementById("finalMessage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
